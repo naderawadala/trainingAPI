@@ -8,7 +8,13 @@ defmodule TrainingAPIWeb.Router do
   scope "/api", TrainingAPIWeb do
     pipe_through :api
     get "/news", NewsController, :index
+    get "/news/:id", NewsController, :show
+    get "/news/:id/tags", NewsController, :showtags
+    post "/news", NewsController, :create
+    patch "/news/:id", NewsController, :update
+    delete "/news/:id", NewsController, :delete
     get "/tags", TagsController, :index
+    get "/tags/:id", TagsController, :show
   end
 
   # Enables LiveDashboard only for development

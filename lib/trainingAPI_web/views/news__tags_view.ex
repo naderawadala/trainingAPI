@@ -13,8 +13,9 @@ defmodule TrainingAPIWeb.News_TagsView do
   def render("news__tags.json", %{news__tags: news__tags}) do
     %{
       id: news__tags.id,
+      id: news__tags.id,
       news_id: news__tags.news_id,
-      tag_id: news__tags.tag_id
+      tags_id: news__tags.tags_id
     }
   end
 end

@@ -5,7 +5,9 @@ defmodule TrainingAPI.Schema do
 
   import Ecto.Query, warn: false
   alias TrainingAPI.Repo
-
+  alias TrainingAPI.TagsSchema
+  alias TrainingAPI.NewsTagsSchema
+  alias TrainingAPI.NewsTagsSchema.News_Tags
   alias TrainingAPI.Schema.News
 
   @doc """
@@ -100,5 +102,11 @@ defmodule TrainingAPI.Schema do
   """
   def change_news(%News{} = news, attrs \\ %{}) do
     News.changeset(news, attrs)
+  end
+
+  def get_tags_for_news!(id) do
+    news = get_news!(id)
+    query = from(t in News_Tags, where: t.news_id == 1)
+    IO.inspect(query)
   end
 end

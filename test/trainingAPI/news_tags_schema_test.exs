@@ -8,7 +8,7 @@ defmodule TrainingAPI.NewsTagsSchemaTest do
 
     import TrainingAPI.NewsTagsSchemaFixtures
 
-    @invalid_attrs %{news_id: nil, tag_id: nil}
+    @invalid_attrs %{id: nil, news_id: nil, tags_id: nil}
 
     test "list_news_tags/0 returns all news_tags" do
       news__tags = news__tags_fixture()
@@ -21,11 +21,12 @@ defmodule TrainingAPI.NewsTagsSchemaTest do
     end
 
     test "create_news__tags/1 with valid data creates a news__tags" do
-      valid_attrs = %{news_id: 42, tag_id: 42}
+      valid_attrs = %{id: 42, news_id: 42, tags_id: 42}
 
       assert {:ok, %News_Tags{} = news__tags} = NewsTagsSchema.create_news__tags(valid_attrs)
+      assert news__tags.id == 42
       assert news__tags.news_id == 42
-      assert news__tags.tag_id == 42
+      assert news__tags.tags_id == 42
     end
 
     test "create_news__tags/1 with invalid data returns error changeset" do
@@ -34,11 +35,12 @@ defmodule TrainingAPI.NewsTagsSchemaTest do
 
     test "update_news__tags/2 with valid data updates the news__tags" do
       news__tags = news__tags_fixture()
-      update_attrs = %{news_id: 43, tag_id: 43}
+      update_attrs = %{id: 43, news_id: 43, tags_id: 43}
 
       assert {:ok, %News_Tags{} = news__tags} = NewsTagsSchema.update_news__tags(news__tags, update_attrs)
+      assert news__tags.id == 43
       assert news__tags.news_id == 43
-      assert news__tags.tag_id == 43
+      assert news__tags.tags_id == 43
     end
 
     test "update_news__tags/2 with invalid data returns error changeset" do

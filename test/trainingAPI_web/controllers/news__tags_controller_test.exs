@@ -6,14 +6,16 @@ defmodule TrainingAPIWeb.News_TagsControllerTest do
   alias TrainingAPI.NewsTagsSchema.News_Tags
 
   @create_attrs %{
+    id: 42,
     news_id: 42,
-    tag_id: 42
+    tags_id: 42
   }
   @update_attrs %{
+    id: 43,
     news_id: 43,
-    tag_id: 43
+    tags_id: 43
   }
-  @invalid_attrs %{news_id: nil, tag_id: nil}
+  @invalid_attrs %{id: nil, news_id: nil, tags_id: nil}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -35,8 +37,9 @@ defmodule TrainingAPIWeb.News_TagsControllerTest do
 
       assert %{
                "id" => ^id,
+               "id" => 42,
                "news_id" => 42,
-               "tag_id" => 42
+               "tags_id" => 42
              } = json_response(conn, 200)["data"]
     end
 
@@ -57,8 +60,9 @@ defmodule TrainingAPIWeb.News_TagsControllerTest do
 
       assert %{
                "id" => ^id,
+               "id" => 43,
                "news_id" => 43,
-               "tag_id" => 43
+               "tags_id" => 43
              } = json_response(conn, 200)["data"]
     end
 

@@ -5,7 +5,6 @@ defmodule TrainingAPI.NewsTagsSchema do
 
   import Ecto.Query, warn: false
   alias TrainingAPI.Repo
-
   alias TrainingAPI.NewsTagsSchema.News_Tags
 
   @doc """
@@ -101,4 +100,6 @@ defmodule TrainingAPI.NewsTagsSchema do
   def change_news__tags(%News_Tags{} = news__tags, attrs \\ %{}) do
     News_Tags.changeset(news__tags, attrs)
   end
+
+
 end

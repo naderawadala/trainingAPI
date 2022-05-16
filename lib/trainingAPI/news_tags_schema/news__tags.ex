@@ -4,15 +4,14 @@ defmodule TrainingAPI.NewsTagsSchema.News_Tags do
 
   schema "news_tags" do
     field :news_id, :integer
-    field :tag_id, :integer
+    field :tags_id, :integer
 
-    timestamps()
   end
 
   @doc false
   def changeset(news__tags, attrs) do
     news__tags
-    |> cast(attrs, [:news_id, :tag_id])
-    |> validate_required([:news_id, :tag_id])
+    |> cast(attrs, [:news_id, :tags_id])
+    |> validate_required([:news_id, :tags_id])
   end
 end

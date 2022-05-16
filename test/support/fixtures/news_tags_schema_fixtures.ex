@@ -11,8 +11,9 @@ defmodule TrainingAPI.NewsTagsSchemaFixtures do
     {:ok, news__tags} =
       attrs
       |> Enum.into(%{
+        id: 42,
         news_id: 42,
-        tag_id: 42
+        tags_id: 42
       })
       |> TrainingAPI.NewsTagsSchema.create_news__tags()
 
