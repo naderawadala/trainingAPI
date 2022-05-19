@@ -4,6 +4,7 @@ defmodule TrainingAPIWeb.NewsController do
   alias TrainingAPI.Schema
   alias TrainingAPI.Schema.News
   alias TrainingApi.NewsTagsSchema.News_Tags
+  alias TrainingAPI.TagsSchema
 
   action_fallback TrainingAPIWeb.FallbackController
 
@@ -26,10 +27,7 @@ defmodule TrainingAPIWeb.NewsController do
     render(conn, "show.json", news: news)
   end
 
-  def showtags(conn, %{"id" => id}) do
-    news = Schema.get_tags_for_news!(id)
-    render(conn, "index.json", news: news)
-  end
+
 
   def update(conn, %{"id" => id, "news" => news_params}) do
     news = Schema.get_news!(id)
@@ -46,4 +44,5 @@ defmodule TrainingAPIWeb.NewsController do
       send_resp(conn, :no_content, "")
     end
   end
+
 end

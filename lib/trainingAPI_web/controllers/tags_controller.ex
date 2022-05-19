@@ -3,6 +3,8 @@ defmodule TrainingAPIWeb.TagsController do
 
   alias TrainingAPI.TagsSchema
   alias TrainingAPI.TagsSchema.Tags
+  alias TrainingAPI.NewsTagsSchema
+  alias TrainingAPI.NewsTagsSchema.News_Tags
 
   action_fallback TrainingAPIWeb.FallbackController
 
@@ -39,5 +41,17 @@ defmodule TrainingAPIWeb.TagsController do
     with {:ok, %Tags{}} <- TagsSchema.delete_tags(tags) do
       send_resp(conn, :no_content, "")
     end
+  end
+
+  def showtags(conn, %{"id" => id}) do
+    result = gettags(id)
+    render(conn, "index.json", tags: result)
+  end
+
+  def gettags(id) do
+    result = NewsTagsSchema.get_tags_for_news!(id)
+     for x <- result do
+       TagsSchema.get_tags!(x)
+     end
   end
 end

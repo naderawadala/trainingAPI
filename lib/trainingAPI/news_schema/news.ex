@@ -3,7 +3,7 @@ defmodule TrainingAPI.Schema.News do
   import Ecto.Changeset
 
   schema "news" do
-    field :date, :naive_datetime
+    field :date, :utc_datetime
     field :headline, :string
     field :publication, :string
     field :text, :string

@@ -104,9 +104,5 @@ defmodule TrainingAPI.Schema do
     News.changeset(news, attrs)
   end
 
-  def get_tags_for_news!(id) do
-    news = get_news!(id)
-    query = from(t in News_Tags, where: t.news_id == 1)
-    IO.inspect(query)
-  end
+
 end

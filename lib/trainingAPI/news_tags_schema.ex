@@ -101,5 +101,10 @@ defmodule TrainingAPI.NewsTagsSchema do
     News_Tags.changeset(news__tags, attrs)
   end
 
+  def get_tags_for_news!(id) do
+    query = from(t in News_Tags, where: t.news_id == ^id, select: t.tags_id)
+    |> Repo.all()
+
+  end
 
 end
