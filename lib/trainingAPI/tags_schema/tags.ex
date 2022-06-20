@@ -4,7 +4,7 @@ defmodule TrainingAPI.TagsSchema.Tags do
 
   schema "tags" do
     field :name, :string
-
+    many_to_many :news, TrainingAPI.Schema.News, join_through: "news_tags"
   end
 
   @doc false

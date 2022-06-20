@@ -10,7 +10,7 @@ defmodule TrainingAPIWeb.Router do
     get "/news", NewsController, :index
     get "/news/:id", NewsController, :show
     get "/news/:id/tags", TagsController, :showtags
-    post "/news/add", NewsController, :create
+    post "/news", NewsController, :create
     patch "/news/patch/:id", NewsController, :update
     delete "/news/delete/:id", NewsController, :delete
     get "/tags", TagsController, :index
